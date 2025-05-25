@@ -1,0 +1,63 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "React App Full Health Monitor",
+    "timezone": "browser",
+    "schemaVersion": 30,
+    "version": 1,
+    "editable": true,
+    "panels": [
+      {
+        "type": "stat",
+        "title": "App Status (Up)",
+        "id": 1,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "up{job='react-app'}"
+          }
+        ],
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 6,
+          "h": 4
+        }
+      },
+      {
+        "type": "graph",
+        "title": "Uptime Trend",
+        "id": 2,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "up{job='react-app'}"
+          }
+        ],
+        "gridPos": {
+          "x": 6,
+          "y": 0,
+          "w": 18,
+          "h": 8
+        }
+      },
+      {
+        "type": "table",
+        "title": "All Job Statuses",
+        "id": 3,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "up"
+          }
+        ],
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 24,
+          "h": 6
+        }
+      }
+    ]
+  }
+}

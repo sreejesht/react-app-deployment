@@ -1,5 +1,4 @@
 # Node JS (Production Build with Serve)
-
 # Use an official Node runtime as a parent image
 FROM node:18-alpine
 
@@ -7,13 +6,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY devops-build/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+COPY devops-build/ .
 
 # Build the app for production
 RUN npm run build
@@ -26,4 +25,3 @@ EXPOSE 80
 
 # Command to serve the build directory
 CMD ["serve", "-s", "build"]
-
